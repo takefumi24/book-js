@@ -30,12 +30,9 @@ function ajaxRequest(lat, long) {
     }
   })
   .done(function (data) {
-    console.log(data);
 
     //都市名、国名
-    console.log('都市名:' + data.city.name);
-    console.log('国名:' + data.city.country);
-
+    $('#place').text(data.city.name + ', ' + data.city.country);
 
     //天気予報データ
     data.list.forEach(function (forecast, index) {
@@ -48,11 +45,10 @@ function ajaxRequest(lat, long) {
       const description = forecast.weather[0].description;
       const iconPath = `images/${forecast.weather[0].icon}.svg`;
 
-      console.log('日時：' + `${month}/${date} ${hours}:${min}`);
-      console.log('気温：' + temperature);
-      console.log('天気：' + description);
-      console.log('画像パス：' + iconPath);
+      //現在の天気とそれ以外で出力を変える
+      if (index === 0) {
 
+      }
 
     });
   })
